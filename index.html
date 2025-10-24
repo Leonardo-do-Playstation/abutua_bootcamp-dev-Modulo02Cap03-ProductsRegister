@@ -23,74 +23,70 @@
 
       <div class="row">
         <div class="col-md-10 offset-md-1">
-          <form>
+          <form onsubmit="save()" id="formProduct">
             <div class="row mb-3 mt-3">
-              <label for="LabelName" class="col-sm-2 col-form-label">Nome:</label>
+              <label for="inputName" class="col-sm-2 col-form-label">Nome:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputName">
+                <input type="text" class="form-control" id="inputName" required>
               </div>
             </div>
-          </form>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-10 offset-md-1">
-          <form>
-            <div class="row mb-3 mt-3">
-              <label for="LabelDescription" class="col-sm-2 col-form-label">Descrição:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputDescription">
-              </div>
+          <div class="row mb-3 mt-3">
+            <label for="inputDescription" class="col-sm-2 col-form-label">Descrição:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputDescription" required>
             </div>
-          </form>
+          </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-10 offset-md-1">
-          <form>
-            <div class="row mb-3 mt-3">
-              <label for="LabelPrice" class="col-sm-2 col-form-label">Preço:</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputPrice">
-              </div>
-
-              <label for="inputCategory" class="col-sm-2 col-form-label">Categoria:</label>
-              <div class="col-sm-4">
-                <select id="inputState" class="form-select" id="selectCategory">
-                  <option selected>Escolha:</option>
-                  <option>Produção Própria</option>
-                  <option>Nacional</option>
-                  <option>Importado</option>
-                </select>
-              </div>
+          <div class="row mb-3 mt-3">
+            <label for="inputPrice" class="col-sm-2 col-form-label">Preço:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputPrice" required>
             </div>
 
+            <label for="inputCategory" class="col-sm-2 col-form-label">Categoria:</label>
+            <div class="col-sm-4">
+              <select class="form-select" id="selectCategory" required>
+                <option value="" selected>Escolha:</option>
+                <option value="1">Produção Própria</option>
+                <option value="2">Nacional</option>
+                <option value="3">Importado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3 mt-3">
+            <label class="col-sm-2 col-form-label">Opções:</label>
+            <div class="col-sm-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkPromotion">
+                <label class="form-check-label" for="checkPromotion">
+                  Promoção
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkBoxNewProduct">
+                <label class="form-check-label" for="checkBoxNewProduct">
+                  Lançamento
+                </label>
+              </div>
+            </div>
             <div class="row mb-3 mt-3">
-              <label class="col-sm-2 col-form-label">Opções:</label>
               <div class="col-sm-4">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="checkPromotion">
-                  <label class="form-check-label" for="checkPromotion">
-                    Promoção
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="checkBoxNewProduct">
-                  <label class="form-check-label" for="checkBoxNewProduct">
-                    Lançamento
-                  </label>
-                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
               </div>
-              <div class="row mb-3 mt-3">
-                <div class="col-sm-4">
-                  <button type="button" class="btn btn-primary">Cadastrar</button>
-                </div>
-              </div>
-          </form>
+            </div>
+            </form>
+          </div>
         </div>
-      </div>
     </section>
 
     <section>
@@ -135,7 +131,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 
-  <script>$("#inputPrice").mask("000.000.000,00", {reverse : true });</script>
+  <script>$("#inputPrice").mask("000.000.000,00", { reverse: true });</script>
 </body>
 
 </html>

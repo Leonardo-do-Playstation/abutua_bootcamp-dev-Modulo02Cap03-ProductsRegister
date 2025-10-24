@@ -1,5 +1,5 @@
 
-// Variavel de produtos
+// Variavel de produtos iniciais 
 var products = [
     {
         id: 1,
@@ -47,6 +47,26 @@ function loadProducts() {
     }
 }
 
+// Função para salvar produtos
+function save() {
+    event.preventDefault();
+
+    var prod =
+    {
+        id: products.length + 1,
+        name: document.getElementById("inputName").value,
+        description: document.getElementById("inputDescription").value,
+        price: document.getElementById("inputPrice").value,
+        category: document.getElementById("selectCategory").value,
+        promotion: document.getElementById("checkPromotion").checked,
+        new: document.getElementById("checkBoxNewProduct").checked
+    };
+    addNewRow(prod);
+    products.push(prod);
+
+    document.getElementById("formProduct").reset();
+}
+
 // Add a new row
 function addNewRow(prod) {
     var table = document.getElementById("ProductsTable");
@@ -75,8 +95,8 @@ function addNewRow(prod) {
     newRow.insertCell().appendChild(priceNode);
 
     // Insert category product
-    var categoryName = categories.find(cat => cat.id === prod.category).name;
-    newRow.insertCell().appendChild(document.createTextNode(categoryName));
+    var categoryNode = document.createTextNode(categories[prod.category - 1].name);
+    newRow.insertCell().appendChild(categoryNode);
 
     // Insert promotion product
     var promoNode = document.createTextNode(prod.promotion);
