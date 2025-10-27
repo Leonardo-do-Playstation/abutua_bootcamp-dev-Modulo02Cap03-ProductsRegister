@@ -1,4 +1,8 @@
 
+function convertToNumber(priceFormat){
+    return priceFormat.replace(/\./g,'').replace(',','.');
+}
+
 // Variavel de produtos iniciais 
 var products = [
     {
@@ -56,7 +60,7 @@ function save() {
         id: products.length + 1,
         name: document.getElementById("inputName").value,
         description: document.getElementById("inputDescription").value,
-        price: document.getElementById("inputPrice").value,
+        price: convertToNumber(document.getElementById("inputPrice").value),
         category: document.getElementById("selectCategory").value,
         promotion: document.getElementById("checkPromotion").checked,
         new: document.getElementById("checkBoxNewProduct").checked
